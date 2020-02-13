@@ -1,0 +1,10 @@
+---
+networks:
+  - name: internal
+    ip: "192.9.0"
+
+  - name: external1
+    ip: "192.9.1"
+
+  - name: external2
+    ip: "192.9.2"

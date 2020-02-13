@@ -1,0 +1,4 @@
+Hi. Happy to jump on a call next week, teaching this. However it might be simpler than you think. Say lab 2 depends on lab 1, you can simple test for the end result of lab 2 as it would fail if lab 1 wasn't complete. However there is absolutely nothing stopping you doing something like this in your "lab 2" ```
+  import_playbook: ../lab_01_01/grade_lab.yml
+  import_playbook: lab_02.yml
+  ```
