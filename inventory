@@ -2,5 +2,5 @@
 localhost
 
 [jumpbox:vars]
-ansible_connection: local
+ansible_connection = local
 
