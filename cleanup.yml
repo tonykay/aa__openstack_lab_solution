@@ -1,0 +1,43 @@
+---
+
+- name: 'STAGE 1: Generate inventory for teardown'
+  import_playbook: playbooks/4_generate_inventory.yml
+  tags:
+    - generate_inventory
+
+- name: Cleanup frontend load-balancer tier
+  hosts: frontends
+  gather_facts: false
+  become: yes
+
+  tasks:
+
+    - name: Remove package
+      yum:
+        name: haproxy
+        state: absent
+
+- name: Cleanup app tier
+  hosts: apps
+  gather_facts: false
+  become: yes
+
+  tasks:
+
+    - name: Remove package
+      yum:
+        name: tomcat
+        state: absent
+
+- name: Cleanup db tier
+  hosts: appdbs
+  gather_facts: false
+  become: yes
+
+  tasks:
+
+    - name: Remove base tools and three tier app packages
+      yum:
+        name: postgresql-server
+        state: absent
+...
