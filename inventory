@@ -1,3 +1,6 @@
 [jumpbox]
-workstation
+localhost
+
+[jumpbox:vars]
+ansible_connection: local
 
