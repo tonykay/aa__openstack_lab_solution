@@ -1,4 +1,14 @@
 ---
+- name: Fetch openstack.pem
+  get_url:
+    uri: "http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pem"
+    dest: "~/.ssh/openstack.pem"
+
+- name: Set permissions on ssh key
+  file:
+    path: "~/.ssh/openstack.pem"
+    mode: 0400
+
 - name: Install pre-requisite yum packages
   package:
     name: "{{ yum_packages }}"
